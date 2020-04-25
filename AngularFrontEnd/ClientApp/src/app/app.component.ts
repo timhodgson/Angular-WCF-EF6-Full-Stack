@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from './_services';
 import { Customer } from './_models';
 
-@Component({ 
+@Component({
   selector: 'app', 
   templateUrl: 'app.component.html',
   styleUrls: [ './app.component.css' ]

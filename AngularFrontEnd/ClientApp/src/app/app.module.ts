@@ -12,6 +12,7 @@ import { RegisterComponent } from './register';
 import { AlertComponent } from './_components';
 import { BreadcrumbComponent } from './breadcrumb';
 import { RegisterCompleteComponent } from './register-complete';
+import { AddCustomerComponent } from './addCustomer/addCustomer.component';
 
 @NgModule({
     imports: [
@@ -25,6 +26,7 @@ import { RegisterCompleteComponent } from './register-complete';
         HomeComponent,
         LoginComponent,
         RegisterComponent,
+        AddCustomerComponent,
         AlertComponent,
         BreadcrumbComponent,
         RegisterCompleteComponent,

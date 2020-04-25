@@ -49,13 +49,8 @@ export class HomeComponent implements OnInit {
     onSubmit() {
         this.submitted = true;
 
-        // stop here if form is invalid
-        if (this.loginForm.invalid) {
-            return;
-        }
-
         this.loading = true;
 
-        this.router.navigate(['../', 'register']);
+        this.router.navigate(['../', 'addCustomer']);
     }
 }

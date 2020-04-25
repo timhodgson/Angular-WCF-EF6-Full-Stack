@@ -8,10 +8,10 @@ import { AlertService, CustomerService, AuthenticationService } from '../_servic
 
 // Registration form with validation
 @Component({
-  templateUrl: 'register.component.html',
-  styleUrls: ['register.component.css']
+  templateUrl: 'addCustomer.component.html',
+  styleUrls: ['addCustomer.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class AddCustomerComponent implements OnInit {
   registerForm: FormGroup;
   loading = false;
   submitted = false;
@@ -30,12 +30,12 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      state: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       confirmEmail: [
         '',
         [Validators.required, Validators.email, this.EmailValidator('email')]
       ],
+      phoneNumber: ['', Validators.required],
       subscribe: [true]
     });
   }
@@ -82,21 +82,21 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-/*
-    // Transform registration for into User object
-    let user: User = new User();
-    user.firstName = this.registerForm.value.firstName;
-    user.lastName = this.registerForm.value.lastName;
-    user.state = this.registerForm.value.state;
-    user.email = this.registerForm.value.email;
-    user.subscribe = this.registerForm.value.subscribe;
 
-    console.debug(JSON.stringify(user));
+    // Transform registration for into User object
+    let customer: Customer = new Customer();
+    customer.FirstName = this.registerForm.value.firstName;
+    customer.LastName = this.registerForm.value.lastName;
+    customer.EmailAddress = this.registerForm.value.email;
+    customer.PhoneNumber = this.registerForm.value.phoneNumber;
+
+    // tslint:disable-next-line:no-console
+    console.debug(JSON.stringify(customer));
 
     // Call the user service to register the new user
     this.loading = true;
     this.customerService
-      .register(1, user)
+      .register(1, customer)
       .pipe(first())
       .subscribe(
         data => {
@@ -109,6 +109,5 @@ export class RegisterComponent implements OnInit {
           this.loading = false;
         }
       );
-  */
   }
 }
