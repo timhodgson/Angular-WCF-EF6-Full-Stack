@@ -1,6 +1,14 @@
-<body>
-  <app-nav-menu></app-nav-menu>
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
-</body>
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+    </div>
+</nav>
+
+<!-- main app container -->
+<alert></alert>
+<router-outlet></router-outlet>
+<p class="buffer"></p>
+<footer>
+  <p class="copyright">&copy; Copyright 2020</p>
+</footer>

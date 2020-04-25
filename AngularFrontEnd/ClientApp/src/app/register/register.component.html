@@ -1,0 +1,43 @@
+<h2 class="banner">CONTACT INFORMATION</h2>
+<app-breadcrumb [step]="1"></app-breadcrumb>
+<div>
+	<div class="container">
+		<div class="row">
+			<div class="rounded-form-box col-sm-12 offset-sm-12">
+				<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+					<label>Please fill in the following required information.</label>
+					<div class="form-group">
+						<label [ngClass]="(submitted===true && f.FirstName.errors)?'invalid-label':'label-bold'" for="FirstName">First Name: *</label>
+						<input type="text" formControlName="FirstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.FirstName.errors }" />
+					</div>
+						<div class="form-group">
+							<label [ngClass]="(submitted===true && f.LastName.errors)?'invalid-label':'label-bold'" for="LastName">Last Name: *</label>
+							<input type="text" formControlName="LastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.LastName.errors }" />
+					</div>
+							<label>Please provide your email address.</label>
+							<br>
+							<label>All meeting correspondence will be sent via email.</label>
+							<div class="form-group">
+								<label [ngClass]="(submitted===true && f.EmailAddress.errors)?'invalid-label':'label-bold'" for="EmailAddress">Email: *</label>
+								<input type="text" formControlName="EmailAddress" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.EmailAddress.errors }" />
+					</div>
+								<div class="form-group">
+									<label [ngClass]="(submitted===true && f.confirmEmailAddress.errors)?'invalid-label':'label-bold'" for="password">Confirm Email: *</label>
+									<input type="text" formControlName="confirmEmailAddress" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmEmailAddress.errors }" />
+					</div>
+									<div class="form-group">
+										<div class="float-right">
+											<div class="form-group col-md-12 form-buttons">
+
+												<button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Continue
+        </button>
+											</div>
+										</div>
+									</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
